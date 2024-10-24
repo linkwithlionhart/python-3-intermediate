@@ -190,3 +190,47 @@ def single_prix_fixe_order(appetizer, *entrees, sides, **dessert_scoops):
   print(dessert_scoops)
 
 single_prix_fixe_order('Baby Beets', 'Salmon', 'Scallops', sides='Mashed Potatoes', scoop_1='Vanilla', scoop_2 = 'Cookies and Cream')
+
+#7 Function Call Unpacking & Beyond
+my_num_list = [3, 6, 9]
+
+def sum(num1, num2, num3):
+  print(num1 + num2 + num3)
+
+sum(*my_num_list)
+
+# OR
+numbers  = {'num1': 3, 'num2': 6, 'num3': 9}
+
+def sum(num1, num2, num3):
+  print(num1 + num2 + num3)
+
+sum(**numbers)
+"""
+Using the unpacking operator (*) we are spreading the contents of our list my_num_list into the individual arguments 
+in our function definition. We are immediately saved the hassle of writing loops and are given the flexibility to use 
+any iterable with three elements.
+"""
+def calculate_price_per_person(total, tip, split):
+  total_tip = total * (tip/100)
+  split_price = (total + total_tip) / split
+  print(split_price)
+
+# Write your code below: 
+table_7_total = [534.50, 20.0, 5]
+calculate_price_per_person(*table_7_total)
+# unpacks the list neatlyy into the required arugments
+calculate_price_per_person(534.50, 20.0, 5)
+# traditional way must be entered positionally and directly
+
+#8 Review
+"""
+We learned:
+How to pack positional arguments in a function with *args.
+How to work with *args using iteration and other positional arguments.
+How to pack keyword arguments in a function with **kwargs.
+How to work with **kwargs using iteration and other keyword arguments.
+How to combine all different types of arguments to gain the most flexibility in our function declarations.
+How to use an unpacking operator (* or **) to unpack arguments in a function call.
+How to use an unpacking operator (* or **) on iterables.
+"""
